@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>hide() show() toggle() demo()</title>
+<link href="dist/css/bootstrap.css" rel="stylesheet">
+<script src="dist/js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+//------------------------------//
+
+$(".btn-primary").click(function(){
+	$("#men").fadeIn(3000);
+	$("#wmen,#kid").fadeOut(3000);
+	})
+	
+$(".btn-success").click(function(){
+	$("#wmen").fadeIn(2000);
+	$("#men,#kid").fadeOut(2000);
+	})
+
+$(".btn-danger").click(function(){
+	$("#kid").fadeIn(2000);
+	$("#wmen,#men").fadeOut(2000);
+	})		
+
+$(".btn-warning").click(function(){
+	$("#men,#wmen,#kid").fadeToggle(3000);
+	})	
+//------------------------------//	
+})
+
+
+
+</script>
+</head>
+<body>
+	<div class="container">
+	<div class="row">
+	<div class="col-sm-1">
+	</div>
+	
+<div class="col-sm-4">
+		<button type="button" class="btn btn-primary">Men</button>
+		
+		<button type="button" class="btn btn-success">Women</button>
+		
+		<button type="button" class="btn btn-danger">kids</button>
+		<button type="button" class="btn btn-warning">kids</button>
+</div>
+		
+		<div class="col-sm-3">
+		</div>
+
+</div>
+</div>
+<div class="row" id="men">
+			<div class="col-sm-12 jumbotron">
+			
+			<h3 class="text-center">Men clothing</h3>
+			</div>
+</div>
+<div class="row" id="wmen">
+			<div class="col-sm-12 jumbotron">
+			
+			<h3 class="text-center">women clothing</h3>
+			</div>
+</div>
+
+
+			
+			<div class="row" id="kid">
+			<div class="col-sm-12 jumbotron">
+			
+			<h3 class="text-center">kids clothing</h3>
+			</div>
+			</div>
+
+
+</body>
+
+
+</html>

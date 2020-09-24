@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="dist/css/bootstrap.css">
+		<script>
+		
+			
+				var item=[
+						{"name" :"apple", "price":"200", "qty":"5"},
+						{"name" :"orange", "price":"600", "qty":"2"},
+						{"name" :"banana", "price":"400", "qty":"15"},
+						{"name" :"graps", "price":"300", "qty":"4"},
+					];
+					
+			function getdata()
+			{	
+				var data = "";	
+				for(var i=0; i<item.length; i++)
+				{
+				
+					data= data+ "<tr>";
+					
+					data= data + "<td>" +item[i].name+ "</td> ";
+					data= data + "<td>" +item[i].price+ "</td> ";
+					data= data + "<td>" +item[i].qty+ "</td> ";
+					data= data + "<td>  <button onclick='del("+i+")' class='btn btn-danger btn-sm'> Delete </button> </td> ";
+					data= data + "</tr> ";
+				
+				}
+				document.getElementById("itemlist").innerHTML=data;
+			}
+			function del(index)
+			{
+				item.splice(index,1);			//1 for delete, 0 for add
+				getdata();						// to reload the list with available item 
+			}
+			function save()
+			{
+				var a= document.getElementById("itemname").value;
+						document.getElementById("itemname").value="";
+				
+				var b=document.getElementById("itemprice").value;
+						document.getElementById("itemprice").value="";
+						
+				var c=document.getElementById("itemqty").value;
+					document.getElementById("itemqty").value="";
+			
+				var newitem={ "name":a,"price":b,"qty" :c };
+				
+				item = item.concat(newitem);                        // concat: add array inside the array.
+				getdata();                                          //to reload the list.
+			}
+		</script>
+	
+	</head>
+	<body onload="getdata()">
+		<div class="container">
+		
+			<div class="row">
+				<div class="col-md-3">
+					<div class="panel panel-default">
+					
+						<div class="panel-heading">
+							<div class="panel-title text-center">New Item</div>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class=" col-md-12 form-group">
+									<label>Name</label>
+									<input type="text" class="form-control" placeholder="Enter Name" id="itemname">
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class=" col-md-12 form-group">
+									<label>Price</label>
+									<input type="text" class="form-control" placeholder="Enter price" id="itemprice">
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class=" col-md-12 form-group">
+									<label>Quantity</label>
+									<input type="text" class="form-control" placeholder="Enter quantity" id="itemqty">
+								</div>
+							</div>
+							<div class="row">
+								<div class=" col-md-12 text-center">
+									
+									<button type="button" class="btn btn-primary" onclick="save()"> Save</button>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading text-center">Item List</div>
+						<div class="panel-body">
+						
+							
+							<div class="table-responsive text-center">
+							<table class=" table table-bordered">
+								<thead>
+								<tr>
+									<th>Name</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Delete</th>
+								</tr>
+						
+								</thead>
+								<tbody id="itemlist">
+									<tr>
+										<td colspan="3" class="text-center">No Record!!</td>
+										
+									</tr>
+									
+									
+								</tbody>
+							</table>
+							</div>
+							
+						
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		
+		
+		</div>
+	
+	</body>
+
+
+</html>
